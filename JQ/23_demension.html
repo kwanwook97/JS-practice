@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            img{
+                width: 400px;
+                height: 300px;
+                padding: 10px;
+                border: 3px solid black;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="../img/demension.png"/>
+    </body>
+    <script>
+        // width() : 요소크기
+        // innerWidth() : 요소크기 + padding
+        // outerWidth() : 요소크기 + padding + border
+        // outerWidth(true) : 요소크기 + padding + border + margin
+        // width : 400
+        console.log($('img').width());
+        // innerWidth : 10+400+10 = 420
+        console.log($('img').innerWidth());
+        // outerWidth : 3+10+400+10+3 = 426
+        console.log($('img').outerWidth());
+        // outerWidth(true) : 5+3+10+400+10+3+5 = 436
+        console.log($('img').outerWidth(true));
+    </script>    
+</html>
+
+
+
+
+
+
+
+
+
+

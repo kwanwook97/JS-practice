@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            div{
+                width: 200px;
+                height: 200px;
+                text-align: center;
+                float: left;
+                margin: 7px;
+            }
+            #mousezone{
+                background-color: lightseagreen;
+            }
+            #overzone{
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <p>클릭하면 글자 색상이 바뀌어요!</p>
+        <p>클릭하면 글자 색상이 바뀌어요!</p>
+        <p>클릭하면 글자 색상이 바뀌어요!</p>
+        <p>클릭하면 글자 색상이 바뀌어요!</p>
+        <div id="mousezone">마우스존</div>
+        <div id="overzone">H 오버존</div>
+        ID : <input type="text"/>
+        <br/>
+        PW : <input type="text"/>
+    </body>
+    <script>
+        //focus, blur
+        $('input[type="text"]').on({
+            'focus':function(){
+                $(this).css({'background-color':'pink'});
+            },
+            'blur':function(){
+                $(this).css({'background-color':'white'});
+            }
+        });
+
+
+        /* mouseenter, mouseleave
+        $('#mousezone').on('mouseenter',function(e){
+            $(this).css({'background-color':'red'});
+        });
+        $('#mousezone').on('mouseleave',function(e){
+            $(this).css({'background-color':'lightseagreen'});
+        });
+        */
+        //on 을 활용하면 한번에 여러 이벤트를 편리하게 등록 할 수 있다.
+        $('#mousezone').on({
+            'mouseenter':function(e){
+                $(this).css({'background-color':'red'});
+            },
+            'mouseleave':function(e){
+                $(this).css({'background-color':'lightseagreen'});
+            },
+            'mousedown':function(e){
+                $(this).css({'background-color':'orange'});
+            },
+            'mouseup':function(e){
+                $(this).css({'background-color':'red'});
+            }
+        });
+
+        // on 으로 추가한 이벤트는 off 로 삭제 가능
+        //$('#mousezone').off(); // 해당 요소의 전체 이벤트 삭제
+        $('#mousezone').off('mouseup'); // 해당 요소의 특정 이벤트 삭제
+
+
+        // hover() -> mouseenter + mouseleave
+        $('#overzone').hover(function(){
+            $(this).css({'background-color':'yellow'});
+        },function(){
+            $(this).css({'background-color':'orange'});
+        });
+
+
+        $('p').on('click',function(e){
+            //this < -js : 이벤트를 당한 당사자
+            // $(this) <- jq : 이벤트를 당한 당사자
+            console.log(e); // 이벤트 객체(현재 일어난 이벤트의 모든 정보)
+            $(this).css({'color':'red'});
+        });
+
+        // dblclick
+        $('p').on('dblclick',function(e){
+            $(this).css({'color':'blue'});
+        });
+    </script>    
+</html>

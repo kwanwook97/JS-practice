@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            #ex1{
+                background-color: orange;
+                height: 150px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ex1">
+            ID: <input type="text" name="userId"/>
+            <br/>
+            PW: <input type="password" name="userPw"/>
+            <br/>
+            <button>로그인</button>
+            <p>
+                <span></span>
+            </p>
+        </div>
+    </body>
+    <script>
+        $('input').on({
+            'focus':function(){
+                $(this).css({'background-color':'skyblue'});
+            },
+            'blur':function(){
+                $(this).css({'background-color':'white'});
+            }
+        });
+
+        $('#ex1').hover(function(){
+            $(this).find('span').html('로그인 해 주세요');
+        },function(){
+            $(this).find('span').html('');
+        });
+
+    </script>    
+</html>

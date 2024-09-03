@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            div{
+                border : 2px solid black;
+                margin: 5px;
+            }
+            div p{
+                background-color: lightgray;
+                padding: 10px;
+                margin: 5px;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>1번째 요소</p>
+            <p class="sel">2번째 요소</p>
+            <p>3번째 요소</p>
+            <p class="sel">4번째 요소</p>
+        </div>
+        <div>
+            <p>5번째 요소</p>
+            <p class="sel">6번째 요소</p>
+            <p>7번째 요소</p>
+            <p class="sel">8번째 요소</p>
+        </div>
+    </body>
+    <script>
+        // 배열 개념(셀렉터로 가져온 내용을 n번 인덱스 의 내용을 가져온다)
+        var $tag = $('div p');
+        console.log($tag);
+        // div 자식 요소중 p태그... 의 첫번째 요소
+        $tag.first().css({'background-color':'pink'});
+        // div 자식 요소중 p태그... 의 마지막 요소
+        $tag.last().css({'background-color':'skyblue'});
+        // div 자식 요소중 p태그... 의 2번 인덱스의 요소
+        $tag.eq(2).css({'background-color':'green'});
+
+        // 필터 개념(셀렉터로 가저온 내용을 두번쨰 셀렉터로 한번 더 컬러준다)
+        $('p').filter('.sel').css({'border':'2px solid red'});
+        $('p').not('.sel').css({'border':'2px solid blue'});
+    </script>    
+</html>

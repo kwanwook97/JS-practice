@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    </head>
+    <body>
+        <p id="test1">문자열 1</p>
+        <p id="test2">문자열 2</p>
+        <input id="test3" type="text" value="홍길동"/>
+        <input id="test4" type="text" value="비밀번호"/>
+        <div></div>
+        <br/>
+        <button>속성변경</button>
+
+    </body>
+    <script>
+        $('#test1').text('<mark>변경된 문자열</mark>');
+        $('#test2').html('<mark>변경된 문자열</mark>');
+        // 버튼을 누르면 test3 은 버튼으로 변경되고 test4 는 password 로 변경 된다.
+        $('button').on('click',function(){
+            $('#test3').attr('type','button');
+            // js 에서 문자열 표현시 '' 로 감싸져 있으면 내부 문자열은 "" 로 표시해 준다.
+            $('#test3').attr('onclick','alert("OK")');
+            $('#test4').attr('type','password');
+        });
+
+        function test(str){
+            alert(str)
+        }
+
+        // 정상적으로 수정해 보기
+        //var str = '문자열'
+        //$('div').html('<input type="button" value="click" onclick="test(str)"/>');
+        // escape 문자 - 문자가 가진 특수 능력을 없애주는 문자
+        // \문자 를 하면 해당 문자의 특수 능력이 사라진다.
+        $('div').html('<input type="button" value="click" onclick="test(\'문자열\')"/>');
+
+    </script>    
+</html>

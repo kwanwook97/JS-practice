@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    </head>
+    <body>
+        <input type="text" value="some text"/>
+        <p>문자가 쓰여진 <b>강조된</b> 영역</p>
+        <span id="txt"></span>
+        <span id="html"></span>
+        <fieldset>
+            <legend>숫자 입력</legend>
+            range(0~100) : <input type="range" min="0" max="100" value="30" step="1"/>
+            <br/>
+            당신이 선택한 값 : <span id="msg">30</span>
+            <br/>
+            <button id="inc">증가</button>
+            <button id="dec">감소</button>
+        </fieldset>
+        <fieldset>
+            <legend>라디오버튼</legend>
+            <div>
+                <input type="radio" name="front" value="HTML"/> HTML
+            </div>
+            <div>
+                <input type="radio" name="front" value="CSS"/> CSS
+            </div>
+            <div>
+                <input type="radio" name="front" value="JS"/> JS
+            </div>
+            <span id="selected">선택값 없음</span>
+        </fieldset>
+    </body>
+    <script>       
+        $('input[type="radio"]').on('click',function(){
+            var val = $(this).val();
+            console.log(val);
+            $('#selected').html(val);
+        });
+    
+
+        $('button').click(function(){
+            var i = $('input[type="range"]').val();
+            if($(this).attr('id') == 'inc'){// 증가
+                i++;
+            }else{//감소
+                i--;
+            }
+            $('input[type="range"]').val(i);
+            $('#msg').html(i);
+        });
+
+
+
+        /*
+        $('input[type="range"]').on('mouseup',function(){
+            var val = $(this).val();
+            $('#msg').html(val);
+        });
+        */
+        // 마우스를 누르면...
+        $('input[type="range"]').on('mousedown',function(){
+            $(this).on('mousemove',function(){// 마우스 무브 이벤트 등록
+                var val = $(this).val();//이벤트 발동시 해야할 일
+                $('#msg').html(val);
+            });
+        });
+
+        $('input[type="range"]').mouseup(function(){// 마우스 버튼을 떼면...
+            $(this).off('mousemove');// 마우스 무브 이벤트 종료
+        });
+
+        //해당 속성의 값 = $(셀렉터).attr('속성명')
+        var attr = $('input[type="text"]').attr('type');
+        console.log(attr);
+        var val = $('input[type="text"]').val();
+        console.log(val);
+
+        var txt = $('p').text(); // 가져올때 텍스트만 취급 한다.
+        var html = $('p').html(); // 가져올때 html 도 같이 가져온다.
+        console.log(txt+' : '+html);
+        $('#txt').text('<h1>HTML 과 TEXT 의 차이</h1>'); // html 태그도 문자로 본다.
+        $('#html').html('<h1>HTML 과 TEXT 의 차이</h1>'); // html 태그 효과를 내준다.
+
+
+    </script>    
+</html>

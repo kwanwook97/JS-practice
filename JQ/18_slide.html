@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div{
+                text-align: center;
+                background-color: yellowgreen;
+                border: 1px solid green;
+                padding: 5px;
+                margin: 2px;
+                cursor: pointer;
+            }
+
+            .panel{
+                padding: 100px 0;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="flip1">메뉴1</div>
+        <div class="panel" id="p1">SUB MENU</div>
+        <div id="flip2">메뉴2</div>
+        <div class="panel" id="p2">SUB MENU</div>
+    </body>
+    <script>
+        $('#flip1').on('click',function(){
+            $('#p1').slideToggle('fast');
+        });
+
+        // on 으로 이벤트를 걸어준다.
+        $('#flip2').on('mouseenter',down);
+
+        $('#flip2').on('mouseleave',function(){
+            $('#flip2').off('mouseenter');// 이벤트 발생시 off 로 이벤트를 지워준다.
+            $(this).next().slideUp('slow',function(){ 
+                // 애니메이션이 모두 종료되면 이벤트를 다시 걸어준다.
+                $('#flip2').on('mouseenter',down);
+            });
+        });
+
+        function down(){
+            $(this).next().slideDown('slow');
+        }
+
+        
+        
+
+
+        /*
+        $('#flip2').hover(function(){
+            $('#p2').slideDown('slow');
+        },function(){
+            $('#p2').slideUp('slow');
+        });
+        */
+
+        //slideDown(speed,easing,callback) :  아래로 커지는 것
+        //slideUp(speed,easing,callback) :  위로 작아지는 것
+        //slideToggle(speed,easing,callback) :  토글
+    </script>    
+</html>

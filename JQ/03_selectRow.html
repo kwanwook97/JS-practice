@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            table, th, td{
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+                padding: 5px 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>NO</th><th>NAME</th><th>BIRTH DAY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td><td>김길동</td><td>2018-01-01</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>이길동</td><td>2018-01-01</td>
+                </tr>
+                <tr>
+                    <td>3</td><td>박길동</td><td>2018-01-01</td>
+                </tr>
+                <tr>
+                    <td>4</td><td>정길동</td><td>2018-01-01</td>
+                </tr>
+                <tr>
+                    <td>5</td><td>홍길동</td><td>2018-01-01</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+    <script>
+        console.log($('tr:odd'));// 홀수[1,3,5]
+        console.log($('tr:even')); //짝수[0,2,4]
+    </script>    
+</html>

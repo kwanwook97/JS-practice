@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div{
+                position: absolute;
+                width: 200px;
+                height: 50px;
+                top: 200px;
+                float: left;
+            }
+            .first{
+                background-color: cadetblue;
+            }
+            .second{
+                background-color: coral;
+                left: 220px;
+            }
+            .third{
+                background-color: darkturquoise;
+                left: 430px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="third"></div>
+    </body>
+    <script>
+        $('div').on('mouseenter',slideUp);
+        $('div').on('mouseout',function(){
+            $(this).animate({height:50, top:200},'fast','swing',function(){
+                $(this).on('mouseenter',slideUp);
+            });            
+        });
+
+        function slideUp(){
+            $(this).off('mouseenter');
+            $(this).animate({height:200, top:50},'fast','swing');
+        }
+
+
+    </script>    
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            .item div{
+                display: inline;
+            }
+            div.item{
+                width: 80%;
+                height: 30px;
+                border: 1px solid lightgray;
+                cursor: pointer;
+                font-size: 13px;
+                padding: 10 0 0 10;
+                margin-top: 5px;
+            }
+            div.cnt{
+                float: right;
+                height: 20px;
+                width: 20px;
+                border: 1px solid lightgray;
+                text-align: center;
+                color: orange;
+                font-weight: 600;
+                margin-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="item">
+            <div>A 아이템 구매 수</div>
+            <div class="cnt">0</div>
+        </div>
+        <div class="item">
+            <div>B 아이템 구매 수</div>
+            <div class="cnt">0</div>
+        </div>
+        <div class="item">
+            <div>C 아이템 구매 수</div>
+            <div class="cnt">0</div>
+        </div>
+    </body>
+    <script>
+        $('div.item').click(function(){           
+            var cnt = parseInt($(this).find('.cnt').html());
+            cnt++;
+            $(this).find('.cnt').html(cnt);
+        });
+    </script>    
+</html>

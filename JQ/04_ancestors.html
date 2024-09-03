@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            .ancestors *{
+                display: block;
+                border: 2px solid gray;
+                padding: 5px;
+                margin: 15px;;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ancestors">
+
+            <div>div(great-grandparent)
+                <ul>ul(grandparent)
+                    <li>li(parent)
+                        <span>span</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>DIV(grandparent)
+                <p>p(parent)
+                    <span>span</span>
+                </p>
+            </div>
+        </div>
+    </body>
+    <script>
+        // span 의 바로 위 부모를 가져온다.
+        //$('span').parent().css({'border':'2px solid red'});
+
+        // parents()에 지정을 안해 주면 html 까지 올라가서 다 가져온다.
+        // 인자값을 넣으면 html 라지 올라가면서 해당 요소만을 선택해서 가져온다.
+        //$('span').parents('div').css({'border':'2px solid red'});
+
+        // parentsUntil()에 지정을 안해 주면 html 까지 올라가서 다 가져온다.
+        // 두 요소 사이의 값을 가져온다.
+        $('span').parentsUntil('.ancestors').css({'border':'2px solid red'});
+
+
+    </script>    
+</html>
+
+
+
+
+
+
+
+
+

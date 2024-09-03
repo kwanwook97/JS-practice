@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <script>
+            // script 가 head 안에 있을경우, 문서를 다 읽고 실행하라는 의미
+            $(document).ready(function(){ 
+                $('button').on('click',function(){
+                    var val = $('input[type="text"]').val();
+                    var link = 'https://www.google.com';
+                    if(val == 'admin'){
+                        link = 'https://gdu.co.kr';
+                    }
+                    $('a').attr('href',link);
+                });
+            });
+        </script>  
+    </head>
+    <body>
+        <p>
+            ID : <input type="text" value=""/>
+            <button>확인</button>
+        </p>
+        <a href="#">링크 이동</a>
+    </body>
+  
+</html>

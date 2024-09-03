@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    </head>
+    <body>
+        <p id="ex1" style="color: blue; font-size: 32px;">스타일이 적용된 텍스트</p>
+        <p id="ex2">스타일이 적용 되지 않은 텍스트</p>
+    </body>
+    <script>
+        var color = $('#ex1').css('color');
+        var size = $('#ex1').css('font-size');
+        console.log(color,size);
+        /*
+        $('#ex2').css('color',color);
+        $('#ex2').css('font-size',size);
+        */
+        // object 형태로 사용하면 한번에 여러 속성을 변경 할 수 있다.
+        $('#ex2').css({'color': color, 'font-size':size});
+
+
+    </script>    
+</html>
+
+
+
+
+
+
+

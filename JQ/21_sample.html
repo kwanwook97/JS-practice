@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            table,th,td{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th,td{
+                padding: 10px 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>학번</th>
+                    <th>이름</th>
+                    <th>과목</th>
+                    <th>학점</th>
+                    <th>설명</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        학번 : <input type="text" id="no"/><br/>
+        이름 : <input type="text" id="name"/><br/>
+        과목 : <input type="text" id="sub"/><br/>
+        학점 : <input type="text" id="score"/><br/>
+        설명 : <input type="text" id="desc"/><br/>
+        <button>입력</button>
+    </body>
+    <script>
+        /*
+        $('button').click(function(){
+            var no = $('#no').val();
+            var name = $('#name').val();
+            var sub = $('#sub').val();
+            var score = $('#score').val();
+            var desc = $('#desc').val();
+            var content = '<tr>';
+            content += '<td>'+no+'</td>';
+            content += '<td>'+name+'</td>';
+            content += '<td>'+sub+'</td>';
+            content += '<td>'+score+'</td>';
+            content += '<td>'+desc+'</td>';
+            content += '</tr>';
+            $('tbody').append(content);
+        });
+        */
+       //간결 하긴 하지만 요소의 순서가 변경되면 데이터가 꼬이게 된다.
+        $('button').click(function(){
+            var $input = $('input[type="text"]');            
+            console.log($input);
+
+            var content = '<tr>';                
+            for(var i=0; i<$input.length; i++){                
+                content += '<td>'+$input.eq(i).val()+'</td>';
+            }            
+            content += '</tr>';
+            
+            $('tbody').append(content);
+        });
+    </script>    
+</html>
+
+
+
+
+
+
+
+
+
+

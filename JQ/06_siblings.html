@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            div *{
+                display: block;
+                border: 2px solid gray;
+                padding: 5px;
+                margin: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>ELEMENT 1</p>
+            <span>ELEMENT 2</span>
+            <span>ELEMENT 3</span>
+            <span>ELEMENT 4</span>
+            <h3>ELEMENT 5</h3>
+            <h4>ELEMENT 6</h4>
+            <h5>ELEMENT 7</h5>
+            <h6>ELEMENT 8</h6>
+            <p>ELEMENT 9</p>
+        </div>
+    </body>
+    <script>
+        //siblings() : 나를 제외한 동일 선상의 요소를 가져온다.
+        //$('h3').siblings().css({'border':'2px solid red'});
+        // 이 경우 동일선상의 span 만 가져온다.
+        //$('h3').siblings('span').css({'border-color':'red'});
+        
+        //next() : 다음 요소(아래)
+        //$('h3').next().css({'border-color':'blue'});
+        //prev() : 이전 요소(위)
+        //$('h3').prev().css({'border-color':'blue'});
+
+        //nextAll(selector) : next 방향으로 끝까지 이동하면서 특정 요소만 가져온다.
+        //$('h3').nextAll('p').css({'border-color':'red'});
+        //prevAll(selector) : prev 방향으로 끝까지 이동하면서 특정 요소만 가져온다.
+        //$('h3').prevAll('span').css({'border-color':'blue'});
+
+        //nextUntil(selector) :첫번째 셀렉터와 두번째 셀렉터 사이요소 가져오기(next)
+        $('h3').nextUntil('p').css({'background-color':'yellow'});
+        //prevUntil(selector) :첫번째 셀렉터와 두번째 셀렉터 사이요소 가져오기(prev)
+        $('h3').prevUntil('p').css({'background-color':'yellowgreen'});
+
+    </script>    
+</html>

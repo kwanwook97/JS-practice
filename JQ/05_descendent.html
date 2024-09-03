@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <style>
+            .ancestors *{
+                display: block;
+                border: 2px solid gray;
+                padding: 5px;
+                margin: 15px;;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ancestors">
+            <div>div(great-grandparent)
+                <ul>ul(grandparent)
+                    <li>li(parent)
+                        <span>span</span>
+                    </li>
+                </ul>
+            </div>
+            <div>DIV(grandparent)
+                <p>p(parent)
+                    <span>span</span>
+                </p>
+            </div>
+        </div>
+    </body>
+    <script>
+        //children()
+        //.ancestors 의 자식 요소만 가져와 콘솔에 출력해 보자
+        var $elem = $('.ancestors').children();
+        console.log($elem);
+        //find(selctor)
+        //.ancestors 의 자식 요소중 span 을 가져와 콘솔에 출력해 보자
+        $elem = $('.ancestors').find('span');
+        console.log($elem);
+    </script>    
+</html>
+
+
+
+
+
+
+
+
+

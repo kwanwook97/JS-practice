@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <Style>
+            div.parent{
+                background-color: yellow;
+                width: 400px;
+                height: 180px;
+                text-align: center;
+                margin: 10px;
+            }
+            .parent div{
+                background-color: blue;
+                width: 300px;
+                height: 50px;
+                margin: 20px auto;
+                font-weight: 600;
+                color: white;
+                line-height: 45px;
+            }
+        </Style>
+    </head>
+    <body>
+        <div class="parent">
+            <b>Parent Element</b>
+            <div class="ch1">Child Element</div>
+            <div class="ch2">Child Element</div>
+        </div>
+        <button id="remove">remove()</button>
+        <button id="empty">empty()</button>
+    </body>
+    <script>
+        $('#remove').click(function(){
+            $('.parent').remove();
+        });
+
+        $('#empty').click(function(){
+            $('.parent').empty();
+        });
+    </script>    
+</html>

@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    </head>
+    <body>
+        <h1>클래스가 없다.</h1>
+        <h1 class="cls">클래스가 있다.</h1>
+        <h1>클래스가 없다.</h1>
+        <h1 class="cls">클래스가 있다.</h1>
+
+        <p id="one">아이디가 있는 녀석</p>
+        <p>태그만 있는 녀석</p>
+
+        <h3>List 1:</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>J-QUERY</li>
+        </ul>
+
+        <h3>List 2:</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>J-QUERY</li>
+        </ul>
+
+        <a href="http://w3schools.com">사이트 링크 A</a>
+        <a href="http://w3schools.com">사이트 링크 B</a>
+        <a href="http://w3schools.com" target="_blank">사이트 링크 C</a>
+    </body>
+    <script>
+        /* javascript */
+        
+        console.log(document.getElementById('one'));      
+        console.log(document.getElementsByClassName('cls'));        
+        console.log(document.getElementsByTagName('p'));
+
+        /*J-Query*/
+        // 기초
+        console.log($('#one'));// id="one"
+        console.log($('.cls'));// class="cls"
+        console.log($('p'));// p 태그
+
+        // 000 중에서...
+        console.log($('*')); // 전체 선택
+        console.log($('h1.cls')); // h1 태그 중에서 클래스가 cls(띄어쓰기 들어가면 자식으로 인식)
+        console.log($('p:first')); // p태그 중에서 첫번째(대체 가능)
+
+        console.log($('ul li'));// ul 태그의 자식요소중 li 태그
+        /*복잡하면 잊어버려도 되는 녀석*/
+        console.log($('ul li:first')); // 첫 ul 자식의 첫 li 선택
+        console.log($('ul li:first-child')); // 모든 ul 자식의 첫 li 선택
+
+        $('p').click(function(){ // 매우 중요
+            console.log($(this));// this :이벤트 당한 당사자 요소
+        });
+
+        // 속성 필터
+        console.log($('a[href]'));//a 태그 중에서 href 속성이 있는 요소
+        console.log($('a[target="_blank"]'));//a 태그 중에서 target 속성이 _blank 인 요소
+        console.log($('a[target!="_blank"]'));
+
+
+
+
+
+    </script>    
+</html>

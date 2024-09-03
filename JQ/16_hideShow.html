@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div{
+                width: 100px;
+                padding: 10px 0;
+                text-align: center;
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div>메뉴1</div>
+        <ul>
+            <li>List 01</li>
+            <li>List 02</li>
+            <li>List 03</li>
+            <li>List 04</li>
+            <li>List 05</li>
+        </ul>
+
+        <button id="toggle">OFF</button>
+        <p>List01</p>
+        <p>List02</p>
+        <p>List03</p>
+        <p>List04</p>
+        <p>List05</p>
+    </body>
+    <script>
+        $('ul').hide();//timing,easing,callback
+
+        $('div').hover(function(){
+            $('ul').show(1000);
+        },function(){
+            $('ul').hide(1000);
+        });
+
+        $('#toggle').click(function(){
+            //speed,easing, callback
+            $('p').toggle('slow','swing',function(){
+                //console.log('animation 종료');
+                if($('#toggle').html() == 'OFF'){
+                    $('#toggle').html('ON');
+                }else{
+                    $('#toggle').html('OFF')
+                }
+            });
+        });
+    </script>    
+</html>
+
+
+
+
+
+
+
+
+
+

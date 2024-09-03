@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>J-Query</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <!--외부에 있는 js 파일 불러오기-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div{
+                position: absolute;
+                height: 30px;
+            }
+            #obj{
+                width: 30px;
+                background-color: green;
+                top: 50%;
+                left: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="obj"></div>
+        <div id="follow">마우스를 따라다녀요</div>
+    </body>
+    <script>
+        // 위치정보는 이벤트 객체 안에 있다.(clientX, clientY)
+        $(document).on({
+            'mousemove':function(e){
+                //console.log(e.clientX+'/'+e.clientY);
+                $('#follow').css({'left':e.clientX, 'top':e.clientY});
+            },
+            'click':function(e){
+                console.log(e.clientX+'/'+e.clientY);
+                $('#obj').animate({'left':e.clientX, 'top':e.clientY},'slow','swing');
+            }
+        });
+    </script>    
+</html>
