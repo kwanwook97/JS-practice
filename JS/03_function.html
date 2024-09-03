@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS Tutorial</title>
+        <link rel="icon" href="../img/chrome.png">
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // 반환 o, 매개변수 o
+        function 토스트기(빵){
+            return '구운' + 빵;
+        }
+        
+        // 반환 o, 매개변수 x
+        function 번호표기기(){
+            return '번호표';
+        }
+
+        // 반환 x, 매개변수 o
+        function 저금통(금액){
+            console.log(금액 + '저금하다.');
+        }
+
+        // 반환 x, 매개변수 x
+        function 호출벨(){
+            console.log('호출!!!!');
+        }
+
+        console.log(토스트기('바게트빵'));
+        console.log('이 기계는 ' + 번호표기기() + '입니다!!');
+        저금통('10,000원')
+        호출벨();
+
+    </script>
+</html>

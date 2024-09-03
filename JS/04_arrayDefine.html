@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS Tutorial</title>
+        <link rel="icon" href="../img/chrome.png">
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // 배열의 2가지 선언방법.            
+        var arrNum = [];                
+        var arrString = new Array();  // 배열의 리터럴 선언방법.      
+
+        // 배열에 데이터 넣는 3가지 방법.
+        arrNum = [1, 2, 3, 4, 5];       
+        arrNum[5] = 6;  // 특정 인덱스에 지정해서 넣기.
+        arrNum.push(7); // List의 add()처럼 넣기.
+        
+        // 배열안의 값 확인.
+        console.log(arrNum);
+        
+        arrString.push(1);
+        arrString.push('A');
+        arrString.push(false);
+        arrString.push([10, 20, 30]);
+        arrString.push(function(){console.log('함수실행');});
+        console.log(arrString);
+        // 하나씩 꺼내기
+        console.log(arrString[0]);
+        console.log(arrString[1]);
+        console.log(arrString[2]);
+        console.log(arrString[3]);
+        console.log(arrString[4]);   // 함수의 내용만 보여준다.        
+        // test() 메서드가 있다고 가정할 때 어떻게 호출하나?
+        arrString[4]();         
+        
+    </script>
+</html>

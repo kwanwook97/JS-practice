@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Java Script Tutorial</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+    </head>
+    <body>
+        <!-- body부에 js코드 입력 : 모든 내용을 다 읽고 나서 자바스크립트를 실행해라. -->
+        <script>
+            var x = 10;
+            var y = x;
+            x = 20;
+            console.log(x, y); // 20, 10??
+
+            var a = [1, 2, 3, 4, 5];
+            var b = a;
+            console.log('a: ' + a.valueOf());
+            console.log('b: ' + b.valueOf());
+            a[0] = 50;       // a의 값을 바꾸고
+            // [50, 2, 3, 4, 5]
+            b[4] = 100;      // b의 값을 바꿨는데...
+            // [50, 2, 3, 4, 100]
+            // 둘다 동일하게 바뀌어 있다?
+            // 두개의 배열관계는 복사라기보다는 링크되었다고 보는 것이 옳다.            
+            console.log('a: ' + a.valueOf());
+            console.log('b: ' + b.valueOf());
+            // 이유 : a의 값을 b가 갖는게 아니라, 링크만 되어있는 상태
+            // 집은 a의 소유지만 b는 키만 받은 상태이다.(사실상 같은 집에 산다.)
+            // b가 a의 값을 독립적으로 가지고 싶다면?(a의 값을 하나하나 받아서 b에 넣어야 한다.)
+
+            var src = [1, 2, 3, 4, 5];
+            var dest = [];
+            for (var i=0; i<src.length; i++) {
+                // dest[i] = src[i];
+                dest.push(src[i]);                
+            }
+
+            src[0] = 100;
+            dest[4] = 200;
+
+            console.log('src: ' + src.valueOf());
+            console.log('src: ' + dest.valueOf());
+
+        </script>        
+    </body>
+</html>
