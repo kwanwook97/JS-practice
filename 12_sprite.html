@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+            #human{
+                width: 205px;
+                height: 260px;
+                list-style-type: none;
+                float: left;
+
+                background: url(../img/sprite.png) -32px -11px;
+
+                position: absolute;
+                left: 10px;
+            }
+        </style>
+    </head>
+    <body>        
+        <button onclick="start()" id="st">출발</button>
+        <button onclick="stop()" id="stp">정지</button>
+        <ul>
+            <li id="human"></li>            
+        </ul>
+    </body>
+    
+    <script>                
+        var elem = document.getElementById('human').style;
+        var btn = document.getElementById('st');
+        var btn2 = document.getElementById('stp');
+        var time;
+        
+        // 애니메이션 이미지 & 이동좌표 초기값 세팅.
+        var arr = [-32, -298, -543, -788, -1055, -1305];        
+        var move = 10;
+        var i = 0;
+        
+        function start(){
+            time = setInterval(function(){ // 0.1초마다 반복                        
+                // Start버튼 비활성화
+                btn.disabled = true;
+                // Stop버튼 활성화
+                btn2.disabled = false;                    
+                // 1. 애니메이션 동작하기                                
+                elem.background = 'url(../img/sprite.png) ' + arr[i] + 'px ' + '-11px';
+                if(i == 5){ // 6개의 애니메이션중 마지막 동작일 때
+                    i = 0;  // 첫번째 동작
+                }else{      
+                    i++;    // 이미지 동작변경
+                }                                    
+                
+                // 2. 왼쪽으로 움직이기
+                if(move <= 1150){
+                    move += 10;
+                    elem.left = move;
+                }else{   // left좌표가 1150이상인경우 제자리.
+                    move = 10;
+                }                
+                
+            }, 100)            
+        }
+        
+        function stop(){            
+            // Start버튼 활성화
+            btn.disabled = false;
+            // Stop버튼 활성화
+            btn2.disabled = false;
+            // interval중지
+            clearInterval(time);            
+        }                
+
+    </script>
+</html>

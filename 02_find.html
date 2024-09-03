@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <h1 id="p1"></h1><button onclick="test()">click</button>
+        <br/>
+        <img src="../img/img01.jpg" id="image" onclick="changeImg()"/>
+        <br/>
+        <input type="text" value="아무 내용이나..."/>
+        <a href="#" my-attr="header">링크 클릭</a>
+        <a href="#" my-attr="main">링크 클릭</a>
+        <a href="#" my-attr="footer">링크 클릭</a>
+    </body>
+    
+    <script>
+        var aTags = document.getElementsByTagName('a');
+        console.log(aTags);
+        for (var a of aTags) {
+            //my-attr 이라는 속성의 값을 가져와라!
+            var val = a.getAttribute('my-attr');
+            console.log(val);
+            // a.setAttribute('innerHTML', '<h1>'+val.toUpperCase()+'</h1>');
+            a.innerHTML = '<h1>'+val.toUpperCase ()+'</h1>';
+            a.style.textDecoration = 'none';
+            a.style.color = 'black';
+        }
+
+        // text -> button
+        var elem = document.getElementsByTagName('input');
+        console.log(elem);
+        elem[0].type = 'button';
+        elem[0].value = 'click';
+
+        var i =0;
+        function changeImg(){
+            var img = document.getElementById('image');            
+            console.log(img);            
+            var imgArr = ['img01.jpg','img02.jpg','img03.jpg','img04.jpg'];            
+            //img.src = '../img/'+imgArr[i]; // 기본 속성만 제어 가능
+            // 모든 속성을 제어할 수 있다.
+            img.setAttribute('src','../img/'+imgArr[i]);
+            i++;
+            if(i == imgArr.length){
+                i = 0;
+            }
+        }
+
+        function test(){
+            // 1. 원하는 태그를 가져온다.
+            // 2. 변경하고 싶은 속성을 가져온다.
+            // 3. 해당 속성을 변경 한다.
+            var elem = document.getElementById('p1');
+            console.log(elem);
+            elem.innerHTML = '새로운 텍스트 등장';
+            elem.style.backgroundColor = 'yellow';            
+        }
+
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

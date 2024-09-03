@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <button>창열기</button>
+        <button>창닫기</button>
+        <br/>
+        자식 창에서 받아온 값 : <input type="text" id="fromChild"/><br/>
+        자식 창으로 보낼 값 : <input type="text" id="toChild"/><br/>
+        <input type="button" value="보내기" onclick="sendVal()"/>        
+    </body>
+    
+    <script>
+        var btn = document.getElementsByTagName('button');
+        var win;
+        btn[0].addEventListener('click',function(){//open
+            console.log('open!');
+            win = window.open('09_child.html', '', 'width=415, height=100');
+        });
+
+        btn[1].addEventListener('click',function(){
+            console.log('close!');
+            win.close();
+        });
+
+        function sendVal(){
+            // 자식의 문서에...
+            var val = document.getElementById('toChild').value;
+            win.document.getElementById('fromParent').value = val;
+            // win.getElementById('fromParent').value = val;            
+
+        }
+
+        function plus(a, b){
+            console.log('부모창의 함수 plus() 의 결과값 : ', a+b);
+        }
+
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

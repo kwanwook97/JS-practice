@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>H1 tag 1</h1>
+        <h1>H1 tag 2</h1>
+        <h1>H1 tag 3</h1>
+        <h1>H1 tag 4</h1>
+        <h2 class="head2">head2 class</h2>
+        <h2 class="head2">head2 class</h2>
+        <h2 class="head2">head2 class</h2>
+        <h2 class="head2">head2 class</h2>
+        <h3 id="head3">head3 id</h3>
+    </body>
+        
+    <script>
+        var elemTag = document.getElementsByTagName('h1');
+        console.log(elemTag);
+
+        var elemClass = document.getElementsByClassName('head2');
+        console.log(elemClass);
+        
+        var elemId = document.getElementById('head3');
+        console.log(elemId);
+
+        // CSS 셀렉터 방식 활용
+        // 편리하지만, 하나밖에 못 가져온다.
+        elemClass = document.querySelector('.head2');
+        console.log(elemClass);
+
+        elemClass = document.querySelectorAll('.head2');
+        console.log(elemClass);
+
+    </script>
+</html>

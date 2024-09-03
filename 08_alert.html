@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <button onclick="popup()">alert</button>
+        <button onclick="conf()">confirm</button>
+        <button onclick="promp()">prompt</button>
+    </body>
+        
+    <script>        
+        function popup(){
+            // 경고창 종류의 것들은 브라우저의 모든 움직임을 정지시킨다.
+            alert('경고창 입니다.');
+        }
+
+        function conf(){
+            var result = confirm('정말로 삭제 하시겠습니까?');
+            console.log(result);            
+            if(result == true){
+                alert('삭제되었습니다.');
+            }
+        }
+
+        function promp(){
+            var result = prompt('당신의 이름을 입력하세요.');
+            console.log(result);
+            if(result != ''){
+                alert('반갑습니다, ' + result + '님!');
+            }else{
+                alert('이름을 입력해주세요!');
+            }
+        }
+
+    </script>
+</html>

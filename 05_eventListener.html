@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+            #eventZone{
+                width: 250px;
+                height: 250px;
+                background-color: yellowgreen;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h4 id="msg">FOCUS NULL</h4>
+        <p><input type="text" id="txtinput"></p>
+        <div id="eventZone"></div>
+        <h4>mouse position : <span id="pos"></span></h4>
+    </body>
+        
+    <script>        
+        // 위 4개의 요소를 가져와 각각의 변수에 담으시오.(변수명은 자유)
+        var msgH4 = document.getElementById('msg');
+        var txtInp = document.getElementById('txtinput');
+        var evtDiv = document.getElementById('eventZone');
+        var posSpan = document.getElementById('pos');
+
+        // click event 추가
+        txtInp.addEventListener('focusin', fcsin); // 이벤트명, 실행함수명
+        txtInp.addEventListener('focusout', fcsout); // 이벤트명, 실행함수명            
+
+        function fcsin(evt){
+            console.log('해당 요소에 포커스 됨.');
+            console.log(evt);
+            msgH4.innerHTML = 'FOCUS EVENT';                         
+
+        }   
+
+        // focusout event시 FOCUS OUT이라고 변경되도록 해보자.
+        function fcsout(evt){
+            console.log('포커스가 해제됨.')     
+            console.log(evt); // 이벤트 객체
+            console.log(this); // this도 사용가능하다.
+            msgH4.innerHTML = 'FOCUS NULL';                         
+        }
+
+        txtInp.addEventListener('keyup', function(evt){
+            console.log(evt.keyCode);
+            // 엔터키를 눌렀을 때 아래 내용이 실행되도록 해보자.
+            if(evt.keyCode == '13'){
+                alert('전송 하였습니다.');
+            }            
+        });
+
+        // eventZone에 click, dblclick, mouseenter, mouseout이벤트를 걸어보자.
+        evtDiv.addEventListener('click', function(evt){
+            console.log('click', evt);
+            this.innerHTML = '<h3>' + evt.type + '</h3>';
+            this.style.backgroundColor = 'red';
+        });
+
+        evtDiv.addEventListener('dblclick', function(evt){
+            console.log('dblclick', evt);
+            this.innerHTML = '<h3>' + evt.type + '</h3>';
+            this.style.backgroundColor = 'purple';            
+        });
+
+        evtDiv.addEventListener('mouseenter', function(evt){
+            console.log('mouseenter', evt);
+            this.innerHTML = '<h3>' + evt.type + '</h3>';
+            this.style.backgroundColor = 'blue';            
+        });
+
+        evtDiv.addEventListener('mouseout', function(evt){
+            console.log('mouseout', evt);
+            this.innerHTML = '<h3>' + evt.type + '</h3>';
+            this.style.backgroundColor = 'yellowgreen';            
+        });
+
+        // body에 Event를 건다면..? -> 모든 요소에 이벤트가 걸려버린다..
+        // 하지만, mousemove는 예외적으로 body에 이벤트를 건다!
+        // 1px만 건드려도 이벤트가 동작한다.
+        var elem = document.getElementsByTagName('body')[0];
+        elem.addEventListener('mousemove', function(e){
+            console.log(e);
+            posSpan.innerHTML = e.clientX + ' / ' + e.clientY;
+        });
+
+    </script>
+</html>

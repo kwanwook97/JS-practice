@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1 id="cnt">0</h1>
+        <button onclick="setTime()">3초후 경고</button>
+        <button onclick="interval(this)">카운트</button>
+        <button onclick="stop()">정지</button>
+    </body>
+        
+    <script>
+        var i = 0;   
+        var time;     
+        function interval(evt){
+            // 카운트 버튼을 비활성화시켜서 더이상 못누르게 막는다.
+            evt.disabled = true;      
+            var elem = document.getElementById('cnt');
+            // setInterval(실행함수명, 시간ms)            
+            time = setInterval(function(){
+                i++;
+                elem.innerHTML = i;                
+            }, 1000);
+        }
+
+        function stop(){
+            // clearInterval(중지할 Interval)
+            clearInterval(time);
+            document.getElementsByTagName('button')[1].disabled = false;
+            
+        }
+
+        function setTime(){
+            // setTimeout(실행함수명, 시간ms)
+            setTimeout(function(){
+                alert('3초가 경과했습니다.');
+            }, 3000);
+        }
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        부모 창에서 받아온 값 : <input type="text" id="fromParent"/><br/>
+        부모 창으로 보낼 값 : <input type="text" id="toParent"/><br/>
+        <input type="button" value="보내기" onclick="sendVal()"/>
+    </body>
+    <script>
+        function sendVal(){
+            // 부모는 opener라고하며, 값을 따로 담을 필요가 없다..?            
+            var val = window.document.getElementById('toParent').value;
+            opener.document.getElementById('fromChild').value = val;            
+            opener.plus(4, 6);
+        }
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

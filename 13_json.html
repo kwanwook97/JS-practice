@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <input type="text" value=""/>
+        <button id="btn">JSON 변경</button>
+    </body>
+        
+    <script>        
+        var obj = {}; // Object
+        var arr = []; // Array
+        // 위 두개의 형태를 JSON(JavaScript Object Notation)이라고 부른다.
+
+        // 1. Object에 key:value 담기
+        var info = {age:20};
+        info.firstName = 'gil-dong';
+        info['lastName'] = 'Hong';
+
+        // 2. 배열에 Object담기
+        arr.push(info);
+        console.log(arr);
+
+        // 3. Object에 배열담기
+        obj.list = arr;
+        console.log(obj);
+
+        // json -> text
+        var txt = JSON.stringify(obj);  // obj라는 객체를 문자열화해서 txt변수에 넣어라.
+        console.log(txt);
+
+        document.getElementsByTagName('input')[0].value = txt;
+
+        // text -> Json
+        document.getElementById('btn').addEventListener('click', function(){
+            var obj = JSON.parse(txt);  
+            console.log(obj);
+            console.log(txt);
+        });
+
+    </script>
+</html>

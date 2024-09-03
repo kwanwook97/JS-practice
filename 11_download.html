@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>DOM SCRIPT</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+            progress{
+                width: 500px;
+                height: 25px;
+            }
+            #proc{
+                position: absolute;
+                background-color: red;
+                width: 10px;
+                height: 10px;
+                top: 100px;
+                left: 10px;
+            }
+            #cnt{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <!--다운로드 중... -> 다운로드 완료--> 
+        <h1><span id="cnt">5</span> 초 후 다운로드가 진행 됩니다.</h1>       
+        <!--특정 시간마다 value 가 증가-->
+        <progress id="download" max="100" min="0" value="0"></progress>
+        <button onclick="count()">다운로드</button>
+        <!--value 증가 에 따라서 left 로 이동-->
+        <div id="proc"></div>        
+    </body>
+    <script>
+        var time;
+        function count(){
+            var msg = document.getElementsByTagName('h1')[0];
+            msg.innerHTML = '<span id="cnt">5</span> 초 후 다운로드가 진행 됩니다.';
+            var i = 5;
+            // 1 초 마다 i 의 값이 1 감소되고...
+            time = setInterval(function(){
+                i--;
+                document.getElementById('cnt').innerHTML = i;
+            }, 1000);
+            
+            setTimeout(function(){
+                clearInterval(time); // 5초후 interval을 멈춘다.
+                download();
+            },5000);
+        }
+
+        function download(){
+            var bar = document.getElementById('download');
+            var box = document.getElementById('proc');
+            var msg = document.getElementsByTagName('h1')[0];
+            msg.innerHTML = '다운로드 진행 중(0%)';
+            var per = 0;
+            time = setInterval(function(){ // 0.01초마다
+                per++; // per을 증가시키고
+                msg.innerHTML = '다운로드 진행 중('+per+'%)'; // 메시지 내용을 갱신하고
+                bar.value = per; // Progress Bar를 변경하고
+                box.style.left = per*5;
+                if(per == 100){  // 100이 되면
+                    clearInterval(time); // 반복종료.
+                    msg.innerHTML = '다운로드 완료!'; // 최종메시지를 보여준다.
+                }
+            },10);
+
+        }
+
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

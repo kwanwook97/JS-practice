@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="icon" href="../img/chrome.png">
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <button onclick="myWindow()">창 열기</button>
+        <button onclick="closeWin()">창 닫기</button>
+    </body>
+    <script>
+        var win;
+        function myWindow(){
+            // url, title, option
+            // 크기를 정하지 않으면 새탭으로 나타낸다.
+            win = window.open('https://www.w3schools.com/', '', 
+                              'width=400,height=400,top=500,left=500');     
+            /*
+                width : 창넓이, height : 창높이       
+                top : y좌표, bottom : x좌표
+            */
+        }
+        function closeWin(){
+            // 창을 닫기위해서는 오픈된 창을 변수에 담아두어야 한다.
+            win.close();
+        }
+    </script>
+
+</html>
